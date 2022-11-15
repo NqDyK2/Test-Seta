@@ -5,13 +5,14 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 
 import { ApiProvider } from '@reduxjs/toolkit/query/react'
+import { apiSlice } from './features/api/apiSlice';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <ApiProvider>
+    <ApiProvider api={apiSlice}>
       <App />
     </ApiProvider>
   </React.StrictMode>
