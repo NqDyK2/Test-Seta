@@ -51,6 +51,12 @@ console.log(sumOfTop([1, 4, 5, 2 ,3], 2))
 
 In the project directory, you can run:
 
+
+### `npm i`
+
+Before starting to launch the project. You need to run the command NPM Install - NPM I to set up the pre-installed environment in the package.
+
+After set-up environment you can start project.
 ### `npm start`
 
 Runs the app in the development mode.\
