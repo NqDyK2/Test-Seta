@@ -2,6 +2,51 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
+## Javascript algorithm
+ - Questions:
+
+1. Provide an array of strings, eg: [‘a’, ‘ab’, ‘abc’, ‘cd’, ‘def, ‘gh’]. Write a function to
+find the strings’ length that appear most in this array. Writing the unit test function
+and provide some test-cases. The result for example array is [‘ab’, ‘cd’, ‘gh’].
+
+2. Provide an array of integers, eg: [1, 4, 2, 3, 5]. Write a function to find sum of
+integers on top 2. Writing the unit test function and provide some test-cases. The
+result for the example array is 9.
+
+ - Answers: 
+
+1. function maxLengthApperance(input) {
+    const map = new Map();
+    for(let i = 0; i < input.length; i++) {
+        if(map.get(input[i].length) == undefined) {
+            map.set(input[i].length, 1)
+        } else {
+            map.set(input[i].length, map.get(input[i].length) + 1);
+        }
+    }
+    let [key, value] = [...map.entries()].reduce((a, e ) => e[1] > a[1] ? e : a)
+    let result = input.filter(item=> item.length == key)
+    return result;
+}
+
+console.log(maxLengthApperance(['a', 'ab', 'abc', 'cd', 'def', 'gh']))
+
+2. function sumOfTop(array, top) {
+    if(top > array.length || top <= 0) {
+        throw "Invalid top"
+    }
+    array.sort()
+    // JS array sort O(n log n)
+    let sum = 0;
+    for(let i = array.length - 1; i >= array.length - top; i--) {
+        sum += array[i];
+    }
+    // O(n - top) => O(n) complexity
+    return sum;
+}
+
+console.log(sumOfTop([1, 4, 5, 2 ,3], 2))
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -44,3 +89,6 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+
