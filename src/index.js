@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-
+import 'antd/dist/antd.css'
 import { ApiProvider } from '@reduxjs/toolkit/query/react'
 import { apiSlice } from './features/api/apiSlice';
 
